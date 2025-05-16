@@ -10,7 +10,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
 
   Future<WeatherModel> fetchWeatherData(String cityName) async{
-    final response = await Dio().get(
+
+     final response = await Dio().get(
       
       '${AppConstants.weatherBaseUrl}/current.json?key=${AppConstants.weatherKey} &q=$cityName',
       options: Options(
@@ -26,5 +27,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       location: Location(name: 'Unknown', region: 'Unknown', country: 'Unknown'),
       current: Current(tempC: 0.0, condition: Condition(text: 'Unknown')),
     );
-  }
+   }
+  
   }
